@@ -5,7 +5,9 @@ import { NewsletterAllowed } from "../inputs/NewsletterAllowed";
 import { Email } from "../inputs/Email";
 import { SubmitButton } from "../inputs/SubmitButton";
 import { validateForm } from "./validateForm";
-import { TEXTS } from "../../common/texts";
+import { ARIA_LABELS } from "../../common/ariaLabels";
+import { ValidationError } from "./ValidationError";
+import { ValidationSuccess } from "./ValidationSuccess";
 
 export function Form() {
   const [firstName, setFirstName] = useState("");
@@ -21,7 +23,11 @@ export function Form() {
   };
 
   return (
-    <form onSubmit={handleSubmit} noValidate={true}>
+    <form
+      onSubmit={handleSubmit}
+      noValidate={true}
+      aria-label={ARIA_LABELS.form}
+    >
       <FirstName onChange={setFirstName} value={firstName} />
       <Password onChange={setPassword} value={password} />
       <NewsletterAllowed
@@ -30,8 +36,8 @@ export function Form() {
       />
       {newsletterAllowed && <Email value={email} onChange={setEmail} />}
       <SubmitButton />
-      {isValid === true && TEXTS.validationSuccess}
-      {isValid === false && TEXTS.validationError}
+      {isValid === true && <ValidationSuccess />}
+      {isValid === false && <ValidationError />}
     </form>
   );
 }

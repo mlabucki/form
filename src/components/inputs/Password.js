@@ -1,3 +1,4 @@
+import { ARIA_LABELS } from "../../common/ariaLabels";
 import { TEXTS } from "../../common/texts";
 import { TextInput } from "./TextInput";
 
@@ -10,6 +11,7 @@ export function Password({ onChange, value = "" }) {
       label={TEXTS.password}
       name="password"
       type="password"
+      ariaLabel={ARIA_LABELS.password}
     />
   );
 }

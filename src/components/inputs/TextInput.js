@@ -1,4 +1,12 @@
-export function TextInput({ onChange, value, id, name, label, type = "text" }) {
+export function TextInput({
+  onChange,
+  value,
+  id,
+  name,
+  label,
+  type = "text",
+  ariaLabel,
+}) {
   return (
     <>
       <label htmlFor={name}>{label}</label>
@@ -7,6 +15,7 @@ export function TextInput({ onChange, value, id, name, label, type = "text" }) {
         name={name}
         type={type}
         value={value}
+        aria-label={ariaLabel}
         onChange={(e) => onChange(e.target.value)}
       />
     </>

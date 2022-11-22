@@ -1,5 +1,6 @@
 import { TEXTS } from "../../common/texts";
 import { noOp } from "../../common/noOp";
+import { ARIA_LABELS } from "../../common/ariaLabels";
 
 export function NewsletterAllowed({ onChange = noOp, checked = false }) {
   return (
@@ -9,6 +10,7 @@ export function NewsletterAllowed({ onChange = noOp, checked = false }) {
         id="newsletterAllowed"
         type="checkbox"
         name="newsletterAllowed"
+        aria-label={ARIA_LABELS.newsletterAllowed}
         checked={checked}
         onChange={onChange}
       />
